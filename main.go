@@ -7,34 +7,21 @@ import (
 )
 
 func main() {
-	var p string
+	var day string
 	var err error
 
-	fmt.Print("Choose a problem: ")
-	_, err = fmt.Scanln(&p)
+	fmt.Print("Choose a day: ")
+	_, err = fmt.Scanln(&day)
 
 	if err != nil {
-		fmt.Println("Error reading input:", err)
+		fmt.Println("failed to read input:", err)
 		return
 	}
 
-	if p == "" {
-		fmt.Println("Problem must not be empty")
+	if day == "" {
+		fmt.Println("day must not be empty")
 		return
 	}
 
-	s := solution.Solutions[p]
-	if s == nil {
-		fmt.Println("Solution not found:", p)
-		return
-	}
-
-	p1, p2, err := s.Run()
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	fmt.Printf("%s.1: %s\n", p, p1)
-	fmt.Printf("%s.2: %s\n", p, p2)
+	solution.Run(day)
 }

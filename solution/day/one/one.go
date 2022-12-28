@@ -1,25 +1,10 @@
-package solution
+package one
 
 import (
 	"sort"
 	"strconv"
 	"strings"
-
-	inputparser "github.com/andyjac/aoc-2022/input_parser"
 )
-
-type One struct{}
-
-func (*One) Run() (string, string, error) {
-	input, err := inputparser.Parse(ONE)
-	if err != nil {
-		return "", "", err
-	}
-
-	r1, err := one_PartOne(input)
-	r2, err := one_PartTwo(input)
-	return r1, r2, err
-}
 
 func calcCalories(input string) ([]int, error) {
 	var calories []int
@@ -42,7 +27,7 @@ func calcCalories(input string) ([]int, error) {
 	return calories, nil
 }
 
-func one_PartOne(input string) (string, error) {
+func PartOne(input string) (string, error) {
 	calories, err := calcCalories(input)
 	if err != nil {
 		return "", err
@@ -52,7 +37,7 @@ func one_PartOne(input string) (string, error) {
 	return strconv.Itoa(calories[0]), nil
 }
 
-func one_PartTwo(input string) (string, error) {
+func PartTwo(input string) (string, error) {
 	calories, err := calcCalories(input)
 	if err != nil {
 		return "", err
